@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="scrlbar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Transport clicker</title>
+</head>
+<body onload="displaybal(), add()">
+    <div class="navbar">
+        <div class="nav-item" onclick="showbuygui()">Kup autobusy</div>
+        <div class="nav-item">Kup Trolejbusy</div>
+        <div class="nav-item">Kup Tramwaje</div>
+        <div class="nav-item">Kup ulepszenia</div>
+        <div class="nav-item">Kody[NIEAKTYWNE]</div>
+    </div>
+
+    <section id="main">
+        <section id="vars">
+            <div class="vars-item">
+                Pieniądze: <span id="bal-show"></span> $
+            </div>
+            <div class="vars-item">
+                Autobusy: <span id="bus-show"></span>
+            </div>
+            <div class="vars-item">
+                Trolejbusy: <span id="trolley-show"></span>
+            </div>
+            <div class="vars-item">
+                Tramwaje: <span id="tram-show"></span>
+            </div>
+            <div class="vars-item">
+                <span id="income-show"></span> $/sek.
+            </div>
+            <div class="vars-item">
+                <span id="click-show"></span> $/klik.
+            </div>
+        </section>
+        <p id="here-click">Klikaj pod spodem</p>
+        <section id="cliker" onclick="clicker()"></section>
+
+        <section id="busimgs">
+            <h2 class="header2">Listy narazie nie działają</h2>
+            <div class="buslist" id="u8list">
+                <h2 class="header2">Solaris Urbino 8</h2>
+            </div>
+            <div class="buslist">
+                <h2 class="header2">Solaris Urbino 9</h2>
+            </div>
+            <div class="buslist">
+                <h2 class="header2">Solaris Urbino 10.5</h2>
+            </div>
+            <div class="buslist">
+                <h2 class="header2">Solaris Urbino 12</h2>
+            </div>
+            <div class="buslist">
+                <h2 class="header2">Solaris Urbino 18</h2>
+            </div>
+        </section>
+    </section>
+
+    <div id="buy-bus">
+        <div id="closebusgui" onclick="closebusgui()"><span class="material-symbols-outlined">
+            close
+            </span></div>
+        <div class="bus-item" id="u8" onclick="buyu8()">Solaris Urbino 8 <br><br><br> 750$<br><br> +2 do $/sek.</div>
+        <div class="bus-item" id="u95" onclick="buyu9()">Solaris Urbino 9 <br><br><br> 4000$<br><br> +3 do $/sek.</div>
+        <div class="bus-item" id="u105" onclick="buyu105()">Solaris Urbino 10.5 <br><br> 6000$<br><br> +1 do $/klik.</div>
+        <div class="bus-item" id="u12" onclick="buyu12()">Solaris Urbino 12 <br><br><br> 8000$ <br><br> +2 do $/klik.</div>
+        <div class="bus-item" id="u18" onclick="buyu18()">Solaris Urbino 18 <br><br><br> 16000$<br><br> +4 do $/sek.</div>
+    </div>
+
+    <section id="ver">vBETA0.1 by luku123</section>
+
+    <script src="scr.js"></script>
+</body>
+</html>

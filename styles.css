@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root{
+    --bgcolor: rgb(231, 231, 149);
+    --busitemcolor: rgb(225, 207, 207);
+    --border5: solid 5px black;
+    --border2: solid 2px black;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--bgcolor);
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border-bottom: var(--border2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.nav-item{
+    margin-left: 50px;
+    border-left: var(--border2);
+    border-right: var(--border2);
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.nav-item:hover{
+    transform: scale(1.01);
+    background-color: wheat;
+    transition: transform 0.3s,  background-color 0.3s;
+}
+
+#buy-bus{
+    position: absolute;
+    top: 100px;
+    left: 325px;
+    background-color: white;
+    width: 1000px;
+    height: 500px;
+    border: var(--border5);
+    border-radius: 20px;
+    display: none;
+}
+
+#closebusgui{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+}
+
+.bus-item{
+    background-color: var(--busitemcolor);
+    border: var(--border5);
+    width: 100px;
+    height: 200px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-left: 50px;
+    text-align: center;
+    padding-top: 50px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.bus-item:hover{
+    transform: scale(1.1);
+    background-color: wheat;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+#vars{
+    width: 25%;
+    border-right: var(--border5);
+    height: 700px;
+}
+
+.vars-item{
+    font-size: 40px;
+    background-color: white;
+    padding: 10px;
+    border: solid 2px black;
+    width: 85%;
+    height: 50px;
+    margin-top: 40px;
+    border-radius: 10px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+}
+
+#cliker{
+    background-color: white;
+    border: var(--border5);
+    width: 25%;
+    height: 400px;
+    margin-top: 100px;
+    margin-left: 50px;
+    border-radius: 1000px;
+}
+
+
+#here-click{
+    position: absolute;
+    top: 60px;
+    left: 29.5%;
+    text-align: center;
+    font-size: 40px;
+}
+
+#busimgs{
+    border-left: var(--border5);
+    height: 700px;
+    width: 50%;
+    margin-left: 40px;
+    overflow: auto;
+}
+
+#ver{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: rgb(99, 96, 96);
+}
+
+.buslist{
+    margin-left:10px;
+    margin-top: 10px;
+    background-color: var(--busitemcolor);
+    height: 120px;
+    width: 85%;
+    padding: 10px;
+    border: var(--border5);
+    border-radius: 10px;
+}
