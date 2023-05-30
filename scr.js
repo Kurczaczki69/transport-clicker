@@ -223,7 +223,7 @@ function displaybal(){
     document.getElementById("bus-show").innerHTML = buscnt;
     document.getElementById("income-show").innerHTML = income;
     document.getElementById("trolley-show").innerHTML = trolleycnt;
-    document.getElementById("tram-show").innerHTML = tramcnt;
+    document.getElementById("tram-show").innerHTML = tramcnt;  
     document.getElementById("click-show").innerHTML = clickmod;
 }
 
