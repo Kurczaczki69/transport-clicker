@@ -149,3 +149,31 @@ body{
     border: var(--border5);
     border-radius: 10px;
 }
+
+#bus-cnt{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-evenly;
+}
+
+#changelog{
+    position:absolute;
+    top: 200px;
+    left: 375px;
+    width: 50%;
+    height: 35%;
+    background-color: white;
+    border: var(--border5);
+    border-radius: 10px;
+    overflow: auto;
+    display: none;
+}
+
+.changelog-item{
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
