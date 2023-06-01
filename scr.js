@@ -361,7 +361,7 @@ function switchToBus(){
     silentSaveGame();
 }
 
-function switchToTram(){
+function switchToTram(){ 
     const bus = document.getElementById('bus-cnt');
     const trolley = document.getElementById('trolley-cnt');
     const tram = document.getElementById('tram-cnt');
