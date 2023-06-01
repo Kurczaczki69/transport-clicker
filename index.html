@@ -6,25 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="scrlbar.css">
+    <link rel="stylesheet" href="tooltips.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Transport clicker</title>
 </head>
 <body onload="displaybal(), add()">
-    <div class="navbar">
+    <div class="open-nav" onclick="showNav()"><span class="material-symbols-outlined">
+        segment
+        </span></div>
+    <div class="navbar" id="nav">
         
-        <div class="nav-item" onclick="showbuygui()">Kup autobusy</div>
-        <div class="nav-item">Kup Trolejbusy</div>
-        <div class="nav-item">Kup Tramwaje</div>
-        <div class="nav-item">Kup ulepszenia</div>
-        <div class="nav-item">Kody[NIEAKTYWNE]</div>
-        <div class="nav-item" onclick="saveGame()">Zapisz grę!</div>
-        <div class="nav-item" onclick="ChangeLog()">Lista zmian</div>
+        <div class="nav-item tooltip" onclick="showbuygui()"><span class="material-symbols-outlined">
+            directions_bus
+            </span>  <span class="tooltiptext">Kup pojazdy</span>
+        </div>
+        <div class="nav-item tooltip"><span class="material-symbols-outlined">
+            star
+            </span><span class="tooltiptext">Kup ulepszenia</span></div>
+        <div class="nav-item tooltip"><span class="material-symbols-outlined">
+            code
+            </span><span class="tooltiptext">Kody</span></div>
+        <div class="nav-item tooltip" onclick="saveGame()"><span class="material-symbols-outlined">
+            save
+            </span><span class="tooltiptext">Zapisz grę</span></div>
+        <div class="nav-item tooltip" onclick="ChangeLog()"><span class="material-symbols-outlined">
+            list
+            </span><span class="tooltiptext">Lista zmian</span></div>
+        <div class="nav-item tooltip" onclick="hideNav()"><span class="material-symbols-outlined">
+            close
+            </span><span class="tooltiptext">Zamknij menu</span></div>
     </div>
 
     <div id="changelog">
         <div id="closebusgui" onclick="closechangelog()"><span class="material-symbols-outlined">
             close
             </span></div>
+            <div class="changelog-item">VBETA0.3 01/06/2023 <br> - Zmieniono menu na wyjmowane z lewej <br> - Zmieniono powiększenie w sklepie z autobusami z 1.1 na 1.05 <br> - Zamiast osobnych menu na autobsy, trolejbusy itp. są teraz kategorie <br> - Po najechaniu na opcję w menu wyświetla się mały opis <br> - Zamiast tekstu w menu teraz są ikonki <br> - Poprawiono wyświetlanie na urzadzeniach mobilnych <br> - Dodano automatyczcne zapisy <br> - Dodano 4 nowe autobusy: <br> |- Solaris Urbino 12 Hydrogen <br> |- Solaris Urbino 18 Hydrogen <br> |- Jelcz M121M <br> |- Man Lion's City GXL</div>
             <div class="changelog-item">VBETA0.2 30/05/2023 <br> - Dodano system zapisów gry<br> - Dodano menu "Lista zmian" <br> - Dodano trzy nowe autobusy: <br> |- Solaris Urbino 24 <br> |- Solaris Alpino 8.6 <br> |- Man Lion's City</div>
             <div class="changelog-item">VBETA0.1.1 30/05/2023 <br> - Naprawiony został błąd z wyświetlaniem w skali 100% <br>- Usunięty został napis "Ustaw skalę na 90% aby poprawnie wyświetlać"</div>
             <div class="changelog-item">VBETA0.1 29/05/2023 <br> - Gra została stworzona</div>
@@ -78,20 +95,39 @@
         <div id="closebusgui" onclick="closebusgui()"><span class="material-symbols-outlined">
             close
             </span></div>
-        <div id="bus-cnt">
-            <div class="bus-item" id="mana20" onclick="buymana20()">MAN A20 <br><br><br> 0$<br><br> +1 do $/klik.</div>
-            <div class="bus-item" id="u8" onclick="buyu8()">Solaris Urbino 8 <br><br><br> 750$<br><br> +1 do $/sek.</div>
-            <div class="bus-item" id="u95" onclick="buyu9()">Solaris Urbino 9 <br><br><br> 4000$<br><br> +2 do $/sek.</div>
-            <div class="bus-item" id="u105" onclick="buyu105()">Solaris Urbino 10.5 <br><br> 6000$<br><br> +1 do $/klik.</div>
-            <div class="bus-item" id="u12" onclick="buyu12()">Solaris Urbino 12 <br><br><br> 8000$ <br><br> +2 do $/klik.</div>
-            <div class="bus-item" id="alp86" onclick="buyalp86()">Solaris Alpino 8.6 <br><br><br> 15000$<br>+2 do $/klik. i $/sek.</div>
-            <div class="bus-item" id="u18" onclick="buyu18()">Solaris Urbino 18 <br><br><br> 16000$<br><br> +4 do $/sek.</div>
-            <div class="bus-item" id="u24" onclick="buyu24()">Solaris Urbino 24 <br><br><br> 21000$ <br><br> +4 do $/klik.</div>
-            <div class="bus-item" id="manlion" onclick="buymanlion()">MAN Lion's City <br><br><br> 24000$ <br><br> +6 do $/klik.</div>
+        <div id="busguicont">
+            <div id="categs">
+                <div class="categ" onclick="switchToBus()"><br>Autobusy</div>
+                <div class="categ" onclick="switchToTrolley()"><br>Trolejbusy</div>
+                <div class="categ" onclick="switchToTram()"><br>Tramwaje</div>
+            </div>
+            <div id="bus-cnt">
+                <div class="bus-item" id="mana20" onclick="buymana20()">MAN A20 <br><br><br> 0$<br><br> +1 do $/klik.</div>
+                <div class="bus-item" id="u8" onclick="buyu8()">Solaris Urbino 8 <br><br><br> 750$<br><br> +1 do $/sek.</div>
+                <div class="bus-item" id="u95" onclick="buyu9()">Solaris Urbino 9 <br><br><br> 4000$<br><br> +2 do $/sek.</div>
+                <div class="bus-item" id="u105" onclick="buyu105()">Solaris Urbino 10.5 <br><br> 6000$<br><br> +1 do $/klik.</div>
+                <div class="bus-item" id="u12" onclick="buyu12()">Solaris Urbino 12 <br><br><br> 8000$ <br><br> +2 do $/klik.</div>
+                <div class="bus-item" id="alp86" onclick="buyalp86()">Solaris Alpino 8.6 <br><br><br> 15000$<br>+2 do $/klik. i $/sek.</div>
+                <div class="bus-item" id="u18" onclick="buyu18()">Solaris Urbino 18 <br><br><br> 16000$<br><br> +4 do $/sek.</div>
+                <div class="bus-item" id="u24" onclick="buyu24()">Solaris Urbino 24 <br><br><br> 21000$ <br><br> +4 do $/klik.</div>
+                <div class="bus-item" id="manlion" onclick="buymanlion()">MAN Lion's City <br><br><br> 24000$ <br><br> +6 do $/klik.</div>
+                <div class="bus-item" id="u12hyd" onclick="buyu12hyd()">Solaris Urbino 12 Hydrogen <br><br> 24500$ <br><br> +7 do $/klik.</div>
+                <div class="bus-item" id="jelczm121m" onclick="buyjelcz121m()">Jelcz M121M <br><br><br> 25500$ <br><br> +6 do $/sek.</div>
+                <div class="bus-item" id="u18hyd" onclick="buyu18hyd()">Solaris Urbino 18 Hydrogen <br><br> 27500$ <br><br> + 8 do $/klik.</div>
+                <div class="bus-item" id="manlionlong" onclick="buymanlionlong()">MAN Lion's City GXL <br><br> 35000$ <br> +8 do $/klik. i +4 do $/sek.</div>
+            </div>
+
+            <div id="trolley-cnt">
+                <h2 class="header2">Jeszcze nie ma :) *Normalna wielkość menu kategorii bedzie jak dodam trolejbusy*</h2>
+            </div>
+
+            <div id="tram-cnt">
+                <h2 class="header2">Jeszcze nie ma :) *Normalna wielkość menu kategorii bedzie jak dodam tramwaje*</h2>
+            </div>
         </div>
     </div>
 
-    <section id="ver">vBETA0.2 by luku123</section>
+    <section id="ver">vBETA0.3 by luku123</section>
 
     <script src="scr.js"></script>
 </body>
