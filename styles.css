@@ -118,7 +118,7 @@ body{
 .vars-item{
     font-size: 2.25vw;
     background-color: white;
-    padding: 10px;
+    padding: 10px; 
     padding-top: 5px;
     border: solid 2px black;
     width: 85%;
