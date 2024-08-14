@@ -1,1 +1,1 @@
-this code is horrible as hell, please dont look at it 😭
+# REPOSITORY MOVED TO https://github.com/Kurczaczki69/trasnsport-clicker-recode
